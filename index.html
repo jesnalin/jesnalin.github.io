@@ -10,38 +10,83 @@
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #1a1a2e;
-            color: #e0e0e0;
+            background: linear-gradient(to bottom right, #8A2387, #E94057, #F28500); /* Vibrant gradient background */
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .main-container {
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        .main-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+        .section-card {
+            background-color: rgba(43, 43, 72, 0.8);
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease-in-out;
+        }
+        .section-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+        }
+        .skill-tag {
+            transition: transform 0.2s ease-in-out;
+        }
+        .skill-tag:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        .pulsing-effect {
+            animation: pulse 2s infinite;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 0 10px #E94057, 0 0 20px #E94057;
+            }
+            50% {
+                transform: scale(1.02);
+                box-shadow: 0 0 20px #E94057, 0 0 40px #E94057;
+            }
         }
     </style>
 </head>
 <body class="p-4 sm:p-8">
 
     <!-- Main Container -->
-    <div class="max-w-4xl mx-auto bg-[#2b2b48] rounded-2xl shadow-xl overflow-hidden p-6 sm:p-10 border border-purple-500">
+    <div class="main-container max-w-4xl mx-auto bg-gradient-to-br from-[#2b2b48] to-[#402b48] rounded-2xl shadow-xl overflow-hidden p-6 sm:p-10 border border-purple-500">
 
         <!-- Header Section -->
         <header class="flex flex-col items-center text-center mb-10">
-            <div class="bg-gray-700 w-32 h-32 rounded-full mb-4 flex items-center justify-center text-5xl font-bold text-gray-400">
+            <div class="bg-purple-600 w-32 h-32 rounded-full mb-4 flex items-center justify-center text-5xl font-bold text-white shadow-lg">
                 JRJ
             </div>
             <h1 class="text-4xl sm:text-5xl font-bold text-white mb-2">Jesnalin Rose Jaison</h1>
-            <p class="text-lg text-purple-300">B.Tech Student | Computer Science Major</p>
+            <p class="text-lg text-purple-200">B.Tech Student | Computer Science Major</p>
         </header>
 
         <div class="grid md:grid-cols-2 gap-8">
             <!-- About Me Section -->
-            <section class="bg-[#3a3a5a] rounded-xl p-6 shadow-lg border border-purple-400">
+            <section class="section-card rounded-xl p-6 shadow-lg border border-purple-400">
                 <h2 class="text-2xl font-semibold mb-4 text-purple-200">About Me</h2>
-                <p class="text-gray-300 leading-relaxed">
+                <p class="text-gray-200 leading-relaxed">
                     I am a dedicated and passionate B.Tech student at Vast Thrissur, specializing in Computer Science. My focus is on leveraging technology to solve real-world problems. This portfolio serves as a showcase of my skills, projects, and academic journey.
                 </p>
             </section>
 
             <!-- Personal Details Section -->
-            <section class="bg-[#3a3a5a] rounded-xl p-6 shadow-lg border border-purple-400">
+            <section class="section-card rounded-xl p-6 shadow-lg border border-purple-400">
                 <h2 class="text-2xl font-semibold mb-4 text-purple-200">Personal Details</h2>
-                <ul class="space-y-3 text-gray-300">
+                <ul class="space-y-3 text-gray-200">
                     <li>
                         <span class="font-semibold text-purple-300">Location:</span> Thrissur, Kerala
                     </li>
@@ -56,22 +101,22 @@
         </div>
 
         <!-- Skills Section -->
-        <section class="bg-[#3a3a5a] rounded-xl p-6 shadow-lg mt-8 border border-purple-400">
+        <section class="section-card rounded-xl p-6 shadow-lg mt-8 border border-purple-400">
             <h2 class="text-2xl font-semibold mb-4 text-purple-200">Skills</h2>
             <div class="flex flex-wrap gap-3">
-                <span class="bg-purple-600 text-white text-sm font-medium px-4 py-1 rounded-full shadow-md">Web Development</span>
-                <span class="bg-purple-600 text-white text-sm font-medium px-4 py-1 rounded-full shadow-md">Java</span>
-                <span class="bg-purple-600 text-white text-sm font-medium px-4 py-1 rounded-full shadow-md">Data Structures</span>
-                <span class="bg-purple-600 text-white text-sm font-medium px-4 py-1 rounded-full shadow-md">C++</span>
-                <span class="bg-purple-600 text-white text-sm font-medium px-4 py-1 rounded-full shadow-md">Problem Solving</span>
+                <span class="skill-tag bg-purple-600 hover:bg-purple-500 transition-colors transform text-white text-sm font-medium px-4 py-1 rounded-full shadow-md cursor-pointer">Web Development</span>
+                <span class="skill-tag bg-purple-600 hover:bg-purple-500 transition-colors transform text-white text-sm font-medium px-4 py-1 rounded-full shadow-md cursor-pointer">Java</span>
+                <span class="skill-tag bg-purple-600 hover:bg-purple-500 transition-colors transform text-white text-sm font-medium px-4 py-1 rounded-full shadow-md cursor-pointer">Data Structures</span>
+                <span class="skill-tag bg-purple-600 hover:bg-purple-500 transition-colors transform text-white text-sm font-medium px-4 py-1 rounded-full shadow-md cursor-pointer">C++</span>
+                <span class="skill-tag bg-purple-600 hover:bg-purple-500 transition-colors transform text-white text-sm font-medium px-4 py-1 rounded-full shadow-md cursor-pointer">Problem Solving</span>
             </div>
         </section>
 
         <!-- Call to Action / Contact -->
-        <div class="bg-purple-500 rounded-xl mt-8 p-6 text-center text-white shadow-lg">
+        <div class="bg-purple-600 rounded-xl mt-8 p-6 text-center text-white shadow-lg pulsing-effect">
             <h3 class="text-2xl font-bold mb-2">Let's Connect!</h3>
             <p>Feel free to reach out to me for collaboration or to learn more about my work.</p>
-            <a href="#" class="mt-4 inline-block bg-white text-purple-800 font-bold py-2 px-6 rounded-full shadow-lg hover:bg-gray-200 transition-colors">
+            <a href="#" class="mt-4 inline-block bg-white text-purple-800 font-bold py-2 px-6 rounded-full shadow-lg hover:bg-gray-200 transform hover:scale-105 transition-transform">
                 Contact Me
             </a>
         </div>
